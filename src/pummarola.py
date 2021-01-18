@@ -6,7 +6,7 @@ from discord.ext import commands
 
 def main():
     pomodoro_standard = 300
-    with open("config.toml", mode="r") as config_file:
+    with open("./config.toml", mode="r") as config_file:
         config = toml.load(config_file)
         
     token = config["token"]["token"]
@@ -35,7 +35,7 @@ def main():
                 arg = int(arg)
                 for left in range(arg, 0, -1):
                     sys.stdout.write("\r")
-                    sys.stdout.write("{:2d} seconds remaining.".format(left))
+                    sys.stdout.write("{} {:2d} seconds remaining.".format(ctx.author, left))
                     sys.stdout.flush()
                     await asyncio.sleep(1)
                 await pomodoro_end(ctx)
