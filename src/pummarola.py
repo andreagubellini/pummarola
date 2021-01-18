@@ -18,18 +18,18 @@ def main():
 	    await client.process_commands(message)
 
     @client.command()
-    async def pummaruola(ctx, *args):
+    async def pummarola(ctx, *args):
         for arg in args:
             print(type(arg))
             if arg is None:
                 await asyncio.sleep(arg)
                 await pomodoro_end(ctx)
             elif arg in ["-h", "--help"]:
-                embed = discord.Embed(title="Commands", description="Pummaruola commands list", color=0x00ff00)
-                embed.add_field(name="!pummaruola -h", value="toggles pummaruola commands", inline=False)
-                embed.add_field(name="!pummaruola --help", value="toggles pummaruola commands", inline=False)
-                embed.add_field(name="!pummaruola", value="starts a default 5 minutes pomodoro timers", inline=False)
-                embed.add_field(name="!pummaruola X", value="starts a pomodoro where timer equals X (X is seconds)", inline=False)
+                embed = discord.Embed(title="Commands", description="pummarola commands list", color=0x00ff00)
+                embed.add_field(name="!pummarola -h", value="toggles pummarola commands", inline=False)
+                embed.add_field(name="!pummarola --help", value="toggles pummarola commands", inline=False)
+                embed.add_field(name="!pummarola", value="starts a default 5 minutes pomodoro timers", inline=False)
+                embed.add_field(name="!pummarola X", value="starts a pomodoro where timer equals X (X is seconds)", inline=False)
                 await ctx.channel.send(embed=embed)
             elif isinstance(arg, str) not in ["-h", "--help"]:
                 arg = int(arg)
@@ -43,7 +43,7 @@ def main():
                 break
 
     async def pomodoro_end(ctx):
-        await ctx.author.send('Your Pummaruola timer has come to an end!')
+        await ctx.author.send('Your pummarola timer has come to an end!')
 
     client.run(token)
 
