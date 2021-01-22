@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 
 def main():
-    pomodoro_standard = 300
+    pomodoro_standard = 1200
     with open("./config.toml", mode="r") as config_file:
         config = toml.load(config_file)
         
@@ -28,7 +28,7 @@ def main():
                 embed = discord.Embed(title="Commands", description="pummarola commands list", color=0x00ff00)
                 embed.add_field(name="!pummarola -h", value="toggles pummarola commands", inline=False)
                 embed.add_field(name="!pummarola --help", value="toggles pummarola commands", inline=False)
-                embed.add_field(name="!pummarola", value="starts a default 5 minutes pomodoro timers", inline=False)
+                embed.add_field(name="!pummarola", value="starts a default 20 minutes pomodoro timers", inline=False)
                 embed.add_field(name="!pummarola X", value="starts a pomodoro where timer equals X (X is seconds)", inline=False)
                 await ctx.channel.send(embed=embed)
             elif isinstance(arg, str) not in ["-h", "--help"]:
