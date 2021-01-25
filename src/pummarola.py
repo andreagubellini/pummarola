@@ -22,7 +22,7 @@ def main():
         for arg in args:
             print(type(arg))
             if arg is None:
-                await asyncio.sleep(arg)
+                await asyncio.sleep(pomodoro_standard)
                 await pomodoro_end(ctx)
             elif arg in ["-h", "--help"]:
                 embed = discord.Embed(title="Commands", description="pummarola commands list", color=0x00ff00)
